@@ -7,10 +7,10 @@ const Project = () => {
   const accentColor = "#c084fc";
   const secondaryAccent = "#f97316";
 
-  useEffect(() => {
-    setVisible(true);
-  }, []);
-
+ useEffect(() => {
+  setVisible(true); 
+  window.scrollTo({ top: 0 }); 
+}, []);
   const projects = [
     {
       title: "Online Vehicle Marketplace and Sales Platform",
@@ -350,7 +350,7 @@ const Project = () => {
         @keyframes fadeUp {
           from {
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(12px);
           }
           to {
             opacity: 1;

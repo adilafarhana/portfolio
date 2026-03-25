@@ -1,9 +1,10 @@
-import { memo, useState } from "react";
+import { memo, useState,useEffect } from "react";
 import Nav from "./Nav";
 
 const Contact = () => {
   const accentColor = "#c084fc";
   const secondaryAccent = "#f97316";
+  const [visible, setVisible] = useState(false);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -24,7 +25,11 @@ const Contact = () => {
     setTimeout(() => setSubmitted(false), 3000);
     setFormData({ name: "", email: "", message: "" });
   };
-
+  
+ useEffect(() => {
+  setVisible(true); 
+  window.scrollTo({ top: 0 }); 
+}, []);
   return (
     <>
       <Nav />
@@ -36,7 +41,18 @@ const Contact = () => {
           color: #f0f3fa;
           overflow-x: hidden;
         }
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s forwards;
+}
 
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
         /* Contact Page */
         .contact-page { max-width: 900px; margin: 0 auto; padding: 40px 24px 80px; text-align: center; }
 
@@ -150,7 +166,7 @@ const Contact = () => {
         }
       `}</style>
 
-      <div className="contact-page">
+      <div className="contact-page fade-in-up" style={{ animationDelay: "0.2s" }}>
         <div className="contact-header">
           <div className="hero-badge">✦ LET'S CONNECT ✦</div>
           <h1>Get In <span>Touch</span></h1>
@@ -158,14 +174,14 @@ const Contact = () => {
         </div>
 
 
-        <div className="contact-grid">
+        <div className="contact-grid fade-in-up" style={{ animationDelay: "0.2s" }}>
           <div className="info-card">
             <h2>Contact Info</h2>
-            <div className="contact-detail"><div className="contact-icon">📧</div><div className="contact-detail-content"><h3>EMAIL</h3><a href="mailto:adilafarhana637@gmail.com">adilafarhana637@gmail.com</a></div></div>
+            <div className="contact-detail"><div className="contact-icon">📧  </div><div className="contact-detail-content"><h3>EMAIL</h3><a href="mailto:adilafarhana637@gmail.com">adilafarhana637@gmail.com</a></div></div>
             <div className="contact-detail"><div className="contact-icon">📍</div><div className="contact-detail-content"><h3>LOCATION</h3><p>Calicut, Koyilandy 673307, Kerala, India</p></div></div>
             <div className="contact-detail"><div className="contact-icon">📞</div><div className="contact-detail-content"><h3>PHONE</h3><a href="tel:+918606425684">+91 86064 25684</a></div></div>
 
-            <div className="social-section">
+            <div className="social-section fade-in-up" style={{ animationDelay: "0.2s" }}>
               <h3>🔗 Connect with me</h3>
               <div className="social-icons">
                 <a href="https://github.com/adilafarhana" target="_blank" rel="noopener noreferrer" className="social-icon"><span>🐙</span> GitHub</a>

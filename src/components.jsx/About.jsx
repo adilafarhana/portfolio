@@ -1,11 +1,17 @@
-import { memo } from "react";
+import { memo,useEffect,useState } from "react";
 import Nav from "./Nav";
 
 const About = () => {
   // Same color theme as homepage
+    const [visible, setVisible] = useState(false);
+
   const accentColor = "#c084fc";
   const secondaryAccent = "#f97316";
 
+  useEffect(() => {
+    setVisible(true);
+    window.scrollTo({ top: 0 });
+  }, [])
   return (
     <>
       <style>{`
@@ -40,7 +46,18 @@ const About = () => {
           margin: 0 auto;
           padding: 0 24px 80px;
         }
+        .fade-in-up {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 0.8s forwards;
+        }
 
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
         /* Hero Section - Bold & Minimal */
         .hero-section {
           padding: 80px 0 60px;
@@ -499,6 +516,7 @@ const About = () => {
           font-size: 13px;
           color: #7e8bb6;
         }
+/* Simple fade-in + slide-up effect */
 
         }
       `}</style>
@@ -507,7 +525,7 @@ const About = () => {
 
       <div className="about-page">
         {/* Hero Section */}
-        <div className="hero-section">
+        <div className="hero-section  fade-in-up" style={{ animationDelay: "0.2s" }}>
           <div className="hero-badge">✦ GET TO KNOW ME ✦</div>
           <h1>
             <span className="first-name">Adila</span>{" "}
@@ -519,7 +537,7 @@ const About = () => {
         </div>
 
         {/* My Story - Narrative Style */}
-        <div className="content-section">
+        <div className="content-section  fade-in-up" style={{ animationDelay: "0.2s" }}>
           <div className="section-header">
             <h2>My Story</h2>
             <div className="subtitle">The journey behind the code</div>
@@ -541,7 +559,7 @@ const About = () => {
         </div>
 
         {/* Skills Section */}
-        <div className="content-section">
+        <div className="content-section fade-in-up" style={{ animationDelay: "0.2s" }} >
           <div className="section-header">
             <h2>Tech Arsenal</h2>
             <div className="subtitle">Tools I wield with confidence</div>
@@ -554,7 +572,7 @@ const About = () => {
         </div>
 
         {/* Experience Timeline */}
-        <div className="content-section">
+        <div className="content-section fade-in-up"  style={{ animationDelay: "0.2s" }}>
           <div className="section-header">
             <h2>Journey So Far</h2>
             <div className="subtitle">Where I've been and what I've built</div>
@@ -613,82 +631,82 @@ const About = () => {
         </div> */}
 
         {/* Personal Traits */}
-        <div className="content-section">
+        <div className="content-section fade-in-up" style={{ animationDelay: "0.2s" }}>
           <div className="section-header">
             <h2>What Defines Me</h2>
             <div className="subtitle">Beyond the technical skills</div>
           </div>
           <div className="traits-grid">
             <div className="trait-item">
-              <strong>⏰ Time Management</strong>
+              <strong>Time Management</strong>
               <span>Balancing multiple projects with precision and delivering on deadlines consistently</span>
             </div>
             <div className="trait-item">
-              <strong>💡 Problem Solving</strong>
+              <strong>Problem Solving</strong>
               <span>Breaking down complex challenges into elegant, maintainable solutions</span>
             </div>
             <div className="trait-item">
-              <strong>🤝 Team Collaboration</strong>
+              <strong> Team Collaboration</strong>
               <span>Thriving in diverse teams and believing that the best ideas emerge from collective creativity</span>
             </div>
             <div className="trait-item">
-              <strong>🔄 Adaptability</strong>
+              <strong> Adaptability</strong>
               <span>Quickly mastering new tools, frameworks, and methodologies as technology evolves</span>
             </div>
             <div className="trait-item">
-              <strong>⚡ Self-Motivation</strong>
+              <strong> Self-Motivation</strong>
               <span>Driven by curiosity and a genuine passion for building things that matter</span>
             </div>
           </div>
         </div>
 
         {/* Volunteer & Hobbies */}
-        <div className="content-section">
+        <div className="content-section fade-in-up" style={{ animationDelay: "0.2s" }}>
           <div className="section-header">
             <h2>Heart & Soul</h2>
             <div className="subtitle">What fuels my creativity</div>
           </div>
           <div className="info-row">
             <div className="info-block">
-              <h3>🤝 Volunteer Experience</h3>
+              <h3> Volunteer Experience</h3>
               <p>Junior Red Cross Member — contributing to community welfare initiatives and awareness programs.<br />
               Online Hackathon Participant — collaborating with developers globally to solve real-world problems through code.</p>
             </div>
             <div className="info-block">
-              <h3>🎯 Hobbies & Interests</h3>
+              <h3> Hobbies & Interests</h3>
               <div className="hobby-list">
-                <span className="hobby-tag">✈️ Travel</span>
-                <span className="hobby-tag">🏸 Badminton</span>
-                <span className="hobby-tag">🎤 Singing</span>
-                <span className="hobby-tag">📚 Reading</span>
-                <span className="hobby-tag">🎨 Creative Design</span>
+                <span className="hobby-tag"> Travel</span>
+                <span className="hobby-tag"> Badminton</span>
+                <span className="hobby-tag"> Singing</span>
+                <span className="hobby-tag"> Reading</span>
+                <span className="hobby-tag">Creative Design</span>
               </div>
             </div>
           </div>
         </div>
 
         {/* Quote */}
-        <div className="quote-section">
+        {/* <div className="quote-section">
           <div className="quote-icon">"</div>
           <blockquote>
             Building software that scales and makes life easier isn't just my job — it's my passion. Every line of code is an opportunity to create something meaningful.
           </blockquote>
           <div className="quote-author">— Adila Farhana</div>
-        </div>
+        </div> */}
 
         {/* Certifications */}
-        <div className="content-section">
+        <div className="content-section fade-in-up" style={{ animationDelay: "0.2s" }} >
           <div className="section-header">
             <h2>Certifications</h2>
             <div className="subtitle">Continuous learning journey</div>
           </div>
           <div className="cert-list">
             {[
-              "🎓 NPTEL - Problem Solving Through Programming in C",
-              "🎓 Udemy - Java Programming (Beginner to Master)",
-              "🎓 MERN Stack Development - FISAT & Link Ur Codes",
-              "🎓 Introduction to Data Science - Infosys Springboard",
-              "🎓 MERN Stack Developer - Ipix Technologies Pvt Ltd"
+              "NPTEL - Problem Solving Through Programming in C",
+              "Udemy - Java Programming (Beginner to Master)",
+              "MERN Stack Development - FISAT & Link Ur Codes",
+              "Introduction to Data Science - Infosys Springboard",
+              "MERN Stack Developer - Ipix Technologies Pvt Ltd"
             ].map(cert => (
               <span key={cert} className="cert-item">{cert}</span>
             ))}
@@ -698,7 +716,7 @@ const About = () => {
         {/* Contact Section */}
        
           
- <div className="contact-section">
+ <div className="contact-section fade-in-up" style={{ animationDelay: "0.2s" }} >
         {/* Footer */}
         <div className="footer" id="contact">
             <h3> Let's Connect</h3>

@@ -1,9 +1,12 @@
-import { memo } from "react";
+import { memo ,useState} from "react";
 import { useNavigate } from "react-router-dom";
 import Nav from "./Nav";
 import profile from "../images/profile.png";
+import nptel from "../images/nptel.png";
+import mern from "../images/mern.png";
+import udamy from "../images/udamy.png";
 
-// Reusable Card Component with glass morphism
+
 const Card = ({ title, children, accentColor, icon }) => (
   <div className="modern-card">
     {icon && <div className="card-icon">{icon}</div>}
@@ -16,6 +19,8 @@ const Card = ({ title, children, accentColor, icon }) => (
 const TechBadge = ({ tech }) => <span className="tech-badge">{tech}</span>;
 
 const Home = () => {
+
+const [selectedImage, setSelectedImage] = useState(null);
   const navigate = useNavigate();
   // Vibrant new color theme - Electric Purple & Coral Orange
   const accentColor = "#c084fc";
@@ -81,18 +86,41 @@ const Home = () => {
 
   // Certifications
   const certifications = [
-    "NPTEL – Problem Solving Through Programming in C",
-    "Udemy – Java Programming (Beginner to Master)",
-    "MERN Stack Development – FISAT & Link Ur Codes",
-    "Introduction to Data Science – Infosys Springboard",
-    "MERN Stack Developer – Ipix Technologies Pvt Ltd",
+  {  name:"NPTEL – Problem Solving Through Programming in C",image:nptel},
+    {name:"Udemy – Java Programming (Beginner to Master)",image:udamy},
+   {name:"MERN Stack Development – FISAT & Link Ur Codes",image:mern},
+    // {name:"Introduction to Data Science – Infosys Springboard" ,image:mern},
+    {name:"MERN Stack Developer – Ipix Technologies Pvt Ltd",image:nptel},
   ];
 
   // Personal traits
   const traits = ["Time Management", "Problem Solving", "Team Collaboration", "Adaptability", "Self-Motivated"];
-
   return (
     <>
+        {selectedImage && (
+      <div
+        onClick={() => setSelectedImage(null)}
+        style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          background: "rgba(0,0,0,0.8)",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          zIndex: 2000
+        }}
+      >
+        <img
+          src={selectedImage}
+          alt="certificate"
+          style={{ width: "550px", borderRadius: "10px" }}
+        />
+      </div>
+    )}
+
       <style>{`
         * {
           box-sizing: border-box;
@@ -106,7 +134,18 @@ const Home = () => {
           color: #f0f3fa;
           overflow-x: hidden;
         }
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s forwards;
+}
 
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
         a {
           text-decoration: none;
         }
@@ -231,7 +270,7 @@ const Home = () => {
           transform: translateY(-4px) scale(1.02);
           background: rgba(192, 132, 252, 0.2);
           border-color: ${accentColor};
-          box-shadow: 0 8px 20px rgba(192, 132, 252, 0.25);
+          // box-shadow: 0 8px 20px rgba(192, 132, 252, 0.25);
         }
 
         /* Buttons */
@@ -254,14 +293,14 @@ const Home = () => {
         }
 
         .btn-primary {
-          background: linear-gradient(105deg, ${accentColor}, #a855f7);
+          background: linear-gradient(105deg, ${accentColor}, #923be4);
           color: #fff;
-          box-shadow: 0 12px 28px rgba(192, 132, 252, 0.4);
+          box-shadow: 0 5px 28px rgba(180, 132, 252, 0.4);
         }
 
         .btn-primary:hover {
           transform: translateY(-3px);
-          box-shadow: 0 18px 32px rgba(192, 132, 252, 0.5);
+          box-shadow: 0 19px 32px rgba(192, 132, 252, 0.5);
         }
 
         .btn-outline {
@@ -291,7 +330,7 @@ const Home = () => {
           border-radius: 42px;
           padding: 32px 28px;
           border: 1px solid rgba(192, 132, 252, 0.3);
-          box-shadow: 0 30px 50px rgba(0, 0, 0, 0.5);
+          // box-shadow: 0 30px 50px rgba(0, 0, 0, 0.5);
           transition: all 0.4s ease;
           position: relative;
           overflow: hidden;
@@ -320,10 +359,10 @@ const Home = () => {
           object-fit: cover;
           border-radius: 50%;
           border: 3px solid ${accentColor};
-          box-shadow: 0 15px 35px rgba(192, 132, 252, 0.4);
+          box-shadow: 0 20px 39px rgba(129, 81, 206, 0.4);
           margin: 0 auto 20px auto;
           display: block;
-          animation: float 4s ease-in-out infinite;
+          animation: float 2s ease-in-out infinite;
         }
 
         /* Code box */
@@ -608,12 +647,29 @@ const Home = () => {
   transform: translateX(4px);
   color: #f97316; /* optional hover accent color */
 }
+  .certifications-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.cert-name {
+  font-weight: 600;
+  font-size: 15px;
+  margin-bottom: 16px;
+  color: #e0e7ff;
+  text-align: center;
+}
+
+
+}
         }
       `}</style>
 
       <Nav />
 
-      <div className="portfolio">
+      <div className="portfolio fade-in-up " style={{ animationDelay: "0.2s" }}>
         <div className="main-container">
           {/* Hero Section */}
           <div className="hero-wrapper">
@@ -623,17 +679,17 @@ const Home = () => {
               <p>I architect robust, scalable web ecosystems with elegant backend logic, optimized database schemas, and secure RESTful APIs. Passionate about clean code and modern frameworks.</p>
 
             
-              <div className="cta-buttons">
-                <button className="btn btn-primary" onClick={() => navigate("/project")}>
+              <div className="cta-buttons ">
+                <button className="btn btn-outline" onClick={() => navigate("/project")}>
                   ✨ Explore Projects
                 </button>
                 <button className="btn btn-outline" onClick={() => navigate("/contact")}>
-                  📬 Contact Me
+                  Contact Me
                 </button>
               </div>
             </div>
 
-            <div className="hero-right">
+            <div className="hero-right  fade-in-up " style={{ animationDelay: "0.2s" }}>
               <div className="profile-card">
                 <img src={profile} alt="Adila Farhana" className="hero-img" />
                 <div className="code-box">
@@ -644,7 +700,7 @@ const Home = () => {
                   </div>
                   <div className="code-line"><span className="code-key">developer</span> = {`{`}</div>
                   <div className="code-line">&nbsp;&nbsp;<span className="code-key">role</span>: <span className="code-value">"PHP Backend Developer"</span>,</div>
-                  <div className="code-line">&nbsp;&nbsp;<span className="code-key">skills</span>: <span className="code-accent">["php", "java", "MySQL", "React","javascript"]</span>,</div>
+                  <div className="code-line">&nbsp;&nbsp;<span className="code-key">skills</span>: <span className="code-accent">["php", "java", "MySQL", "MERN stack"]</span>,</div>
                   <div className="code-line">&nbsp;&nbsp;<span className="code-key">status</span>: <span className="code-value">"currently working"</span></div>
                   <div className="code-line">{`}`}</div>
                 </div>
@@ -653,7 +709,7 @@ const Home = () => {
           </div>
 
           {/* Technical Skills Section */}
-          <div className="section-block">
+          <div className="section-block  fade-in-up " style={{ animationDelay: "0.2s" }}>
             <h2 className="section-title"> Technical Superpowers</h2>
             <div className="grid">
               {skills.map((s, i) => (
@@ -665,7 +721,7 @@ const Home = () => {
           </div>
 
           {/* Experience Section */}
-          <div className="section-block">
+          <div className="section-block  fade-in-up " style={{ animationDelay: "0.2s" }}>
             <h2 className="section-title"> Professional Journey</h2>
             <div className="grid">
               {experience.map((exp, i) => (
@@ -681,7 +737,7 @@ const Home = () => {
 
           {/* Projects Section */}
         {/* Projects Section */}
-<div className="section-block">
+<div className="section-block  fade-in-up " style={{ animationDelay: "0.2s" }}>
   <h2 className="section-title"> Featured Projects</h2>
   <div className="grid">
     {projects.map((proj, i) => (
@@ -692,29 +748,31 @@ const Home = () => {
   </div>
 
   {/* Centered Click Text */}
-  <div style={{ textAlign: "center", marginTop: "24px" }}>
-    <p className="text" onClick={() => navigate("/project")}>
-      Click to explore details →
-    </p>
+                      {/* Certifications Section */}
+
+<div className="section-block  fade-in-up " style={{ animationDelay: "0.2s" }}>
+  <h2 className="section-title"> Certifications</h2>
+  <div className="grid certifications-grid">
+    {certifications.map((cert, i) => (
+      <Card key={i} accentColor={accentColor}>
+        <p className="cert-name">{cert.name}</p>
+        <button
+          className="btn btn btn-outline view-btn"
+          onClick={() => setSelectedImage(cert.image)}
+        >
+          View
+        </button>
+      </Card>
+    ))}
   </div>
 </div>
-          {/* Certifications */}
-          <div className="section-block">
-            <h2 className="section-title"> Certifications</h2>
-            <div className="grid">
-              {certifications.map((cert, i) => (
-                <Card key={i} accentColor={accentColor}>
-                  <p>{cert}</p>
-                </Card>
-              ))}
-            </div>
-          </div>
+</div>
 
           {/* Stats Section */}
        
 
           {/* Personal Traits */}
-          <div className="section-block">
+          <div className="section-block  fade-in-up " style={{ animationDelay: "0.2s" }}>
             <h2 className="section-title">Personal Traits</h2>
             <div className="traits-wrapper">
               {traits.map((trait, i) => (
@@ -724,22 +782,22 @@ const Home = () => {
           </div>
 
           {/* Volunteer & Hobbies */}
-          <div className="section-block">
+          <div className="section-block  fade-in-up " style={{ animationDelay: "0.2s" }}>
             <h2 className="section-title"> Beyond Coding</h2>
             <div className="grid">
               <Card  title="Volunteer Experience" accentColor={accentColor}>
                 <p>Junior Red Cross Member • Online Hackathon Participant</p>
               </Card>
               <Card title="Hobbies & Interests" accentColor={accentColor}>
-                <p>Travel ✈️ • Badminton 🏸 • Singing 🎤</p>
+                <p>Travel • Badminton  • Singing </p>
               </Card>
             </div>
           </div>
 
           {/* Quote */}
-          <div className="quote-box">
+          {/* <div className="quote-box">
             “Building software that scales and makes life easier is my true passion.”
-          </div>
+          </div> */}
 
           {/* Footer */}
           <div className="footer" id="contact">

@@ -3,6 +3,7 @@ import { memo, useState } from "react";
 const Nav = () => {
   const [open, setOpen] = useState(false);
   const pdfUrl = "/resume.pdf";
+  const accentColor = "#c084fc";
 
   return (
     <>
@@ -33,7 +34,7 @@ const Nav = () => {
         }
 
         .nav-logo span {
-          color: #7c6cff;
+          color: ${accentColor};
         }
 
         .nav-links {
@@ -58,7 +59,7 @@ const Nav = () => {
           bottom: -6px;
           width: 0;
           height: 2px;
-          background: #7c6cff;
+          background: ${accentColor};
           transition: 0.3s;
         }
 
@@ -75,20 +76,27 @@ const Nav = () => {
           gap: 10px;
         }
 
+        /* Updated View Resume Button */
         .nav-btn {
           padding: 9px 16px;
           border-radius: 10px;
-          border: 1px solid #7c6cff;
-          color: #7c6cff;
+          border: 1px solid ${accentColor};
+          color: ${accentColor};
           font-size: 13px;
+          font-weight: 500;
           text-decoration: none;
-          transition: 0.3s;
-        }
+          transition: all 0.3s ease;  background: linear-gradient(105deg, ${accentColor}, #923be4);
+          color: #fff;
+          box-shadow: 0 5px 28px rgba(180, 132, 252, 0.4);
+          
+          
+nav-btn        }
 
         .nav-btn:hover {
-          background: #7c6cff;
+          background: ${accentColor};
           color: #fff;
           transform: translateY(-2px);
+          box-shadow: 0 6px 18px rgba(192, 132, 252, 0.4);
         }
 
         .menu-toggle {
@@ -139,20 +147,16 @@ const Nav = () => {
 
         {/* Resume Actions */}
         <div className="nav-actions">
-          {/* View Resume */}
           <a href={pdfUrl} target="_blank" rel="noopener noreferrer" className="nav-btn">
             View Resume
           </a>
-
-          {/* Download Resume */}
-          
-             <a
-          className="nav-btn"
-          href={pdfUrl}
-          download="Adila_Farhana_Resume.pdf"
-        >
-          Download Resume
-        </a>
+          <a
+            className="nav-btn"
+            href={pdfUrl}
+            download="Adila_Farhana_Resume.pdf"
+          >
+            Download Resume
+          </a>
         </div>
 
         {/* Mobile Menu Button */}
