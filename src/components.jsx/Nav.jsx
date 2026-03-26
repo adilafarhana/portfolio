@@ -79,15 +79,15 @@ const Nav = () => {
         /* Updated View Resume Button */
         .nav-btn {
           padding: 9px 16px;
-          border-radius: 10px;
+          border-radius: 20px;
           border: 1px solid ${accentColor};
           color: ${accentColor};
           font-size: 13px;
           font-weight: 500;
           text-decoration: none;
-          transition: all 0.3s ease;  background: linear-gradient(105deg, ${accentColor}, #923be4);
+          transition: all 0.3s ease;  background:  #9655ff;
           color: #fff;
-          box-shadow: 0 5px 28px rgba(180, 132, 252, 0.4);
+          box-shadow: 0 9px 30px rgba(180, 132, 252, 0.4);
           
           
 nav-btn        }

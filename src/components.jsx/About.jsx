@@ -335,15 +335,19 @@ const About = () => {
           display: flex;
           flex-wrap: wrap;
           gap: 12px;
+                    margin-top: 20px;
+
         }
 
         .hobby-tag {
           padding: 6px 18px;
-          background: rgba(249, 115, 22, 0.1);
-          border-radius: 30px;
+          background: rgba(192, 132, 252, 0.08);
+          border-radius: 40px;
           font-size: 14px;
+          font-weight: 500;
           color: #f0f3fa;
-          border: 1px solid rgba(249, 115, 22, 0.2);
+          transition: all 0.2s ease;
+          border: 1px solid rgba(192, 132, 252, 0.15);
         }
 
         /* Quote Section */
@@ -599,7 +603,10 @@ const About = () => {
               <div className="timeline-content">
                 <h3>Master of Computer Applications (MCA)</h3>
                 <div className="company">FISAT, Angamaly | SGPA: 7.7 </div>
-                <p>Completed post-graduation with specialization in software development, algorithms, and system design. Actively participated in hackathons, tech fests, and coding competitions, building a strong foundation in computer science principles.</p>
+               <p>
+Pursued postgraduate studies with a focus on core computer science concepts including software development, algorithms, and system design. 
+Developed strong analytical and problem-solving skills through academic projects and practical implementation.
+</p>
               </div>
             </div>
           </div>
@@ -721,9 +728,9 @@ const About = () => {
         <div className="footer" id="contact">
             <h3> Let's Connect</h3>
             <p><a href="mailto:adilafarhana637@gmail.com">adilafarhana637@gmail.com</a></p>
-            <p style={{ marginTop: 12 }}>
- <a href="https://github.com/adilafarhana" target="_blank" rel="noopener noreferrer">GitHub</a> |{" "}
-            <a href="https://www.linkedin.com/in/adilafarhana-vv-69b924272/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+           <p style={{ marginTop: 12 }}>
+              <a href="https://github.com/adilafarhana" target="_blank" rel="noopener noreferrer">GitHub</a> |{" "}
+              <a href="https://www.linkedin.com/in/adilafarhana-vv-69b924272/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             </p>
             <p className="footer-copy">© 2026 Adila Farhana — Crafting digital experiences with Laravel & React</p>
           </div>  </div>
