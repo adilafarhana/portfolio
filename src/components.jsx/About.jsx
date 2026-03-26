@@ -598,7 +598,7 @@ const About = () => {
               <div className="timeline-year">2023 → 2025</div>
               <div className="timeline-content">
                 <h3>Master of Computer Applications (MCA)</h3>
-                <div className="company">FISAT, Angamaly | SGPA: 7.7</div>
+                <div className="company">FISAT, Angamaly | SGPA: 7.7 </div>
                 <p>Completed post-graduation with specialization in software development, algorithms, and system design. Actively participated in hackathons, tech fests, and coding competitions, building a strong foundation in computer science principles.</p>
               </div>
             </div>
