@@ -11,34 +11,11 @@ const Contact = () => {
     message: "",
   });
 
-  const [submitted, setSubmitted] = useState(false);
-
-  // Scroll to top on load
   useEffect(() => {
     window.scrollTo({ top: 0 });
   }, []);
 
-  // Handle input change
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
 
-  // Handle form submit
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    console.log("Form submitted:", formData);
-
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 3000);
-
-    setFormData({
-      name: "",
-      email: "",
-      message: "",
-    });
-  };
 
   return (
     <>
