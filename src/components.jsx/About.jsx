@@ -3,13 +3,11 @@ import Nav from "./Nav";
 
 const About = () => {
   // Same color theme as homepage
-    const [visible, setVisible] = useState(false);
 
   const accentColor = "#c084fc";
   const secondaryAccent = "#f97316";
 
   useEffect(() => {
-    setVisible(true);
     window.scrollTo({ top: 0 });
   }, [])
   return (

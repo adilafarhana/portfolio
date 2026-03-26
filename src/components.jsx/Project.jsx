@@ -43,7 +43,7 @@ const Project = () => {
       tech: ["React", "Node.js", "MongoDB", "CSS", "Bootstrap"],
       icon: "💇‍♀️",
       featured: false,
-    },
+    }
   ];
 
   return (
