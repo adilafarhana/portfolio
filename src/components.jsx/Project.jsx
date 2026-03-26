@@ -73,8 +73,7 @@ const Project = () => {
         ::-webkit-scrollbar-thumb {
           background: ${accentColor};
           border-radius: 10px;
-        }
-
+        } 
         .project-page { 
           max-width: 1280px; 
           margin: 0 auto; 
