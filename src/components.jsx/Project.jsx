@@ -3,7 +3,6 @@ import Nav from "./Nav";
 
 const Project = () => {
   const [visible, setVisible] = useState(false);
-  // Same color theme as homepage
   const accentColor = "#c084fc";
   const secondaryAccent = "#f97316";
 
@@ -32,7 +31,7 @@ const Project = () => {
       title: "Kallose (Online Shopping)",
       description:
         "E-commerce platform for women's products including bridal dresses and ornaments with rental and purchase options. Includes cart, payment, and order management with secure checkout.",
-      tech: ["MERN Stack", , "Bootstrap", "CSS", "Firebase"],
+      tech: ["MERN Stack",  "Bootstrap", "CSS", "Firebase"],
       icon: "🛍️",
       featured: true,
     },
