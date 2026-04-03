@@ -1,168 +1,175 @@
-import { memo, useState } from "react";
+import { memo, useState, useEffect } from "react";
 
 const Nav = () => {
   const [open, setOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
   const pdfUrl = "/resume.pdf";
   const accentColor = "#c084fc";
+
+  // Detect screen resize
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+      setOpen(false); // close menu on resize
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+    useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "auto";
+  }, [open]);
 
   return (
     <>
       <style>{`
-        .custom-navbar {
+        .navbar {
           width: 100%;
           max-width: 1200px;
           margin: 0 auto 30px;
-          padding: 12px 24px;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          background: rgba(255, 255, 255, 0.08);
-          border: 1px solid rgba(255, 255, 255, 0.12);
-          backdrop-filter: blur(14px);
+          padding: 30px 24px;
+          background: #0a0f1e;
           border-radius: 18px;
-          box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
-          position: sticky;
-          top: 20px;
-          z-index: 1000;
-        }
-
-        .nav-logo {
-          font-size: 22px;
-          font-weight: 700;
-          color: #ffffff;
-          text-decoration: none;
-        }
-
-        .nav-logo span {
-          color: ${accentColor};
-        }
-
-        .nav-links {
           display: flex;
+          justify-content: space-between;
           align-items: center;
-          gap: 28px;
+          position: relative;
         }
 
         .nav-links a {
-          text-decoration: none;
+          margin-right: 20px;
           color: #dbe3ff;
+          text-decoration: none;
           font-size: 15px;
-          font-weight: 500;
-          position: relative;
-          transition: 0.3s;
         }
 
-        .nav-links a::after {
-          content: "";
-          position: absolute;
-          left: 0;
-          bottom: -6px;
-          width: 0;
-          height: 2px;
-          background: ${accentColor};
-          transition: 0.3s;
-        }
-
-        .nav-links a:hover {
-          color: #ffffff;
-        }
-
-        .nav-links a:hover::after {
-          width: 100%;
-        }
-
-        .nav-actions {
-          display: flex;
-          gap: 10px;
-        }
-
-        /* Updated View Resume Button */
         .nav-btn {
-          padding: 9px 16px;
+          padding: 8px 14px;
           border-radius: 20px;
           border: 1px solid ${accentColor};
-          color: ${accentColor};
-          font-size: 13px;
-          font-weight: 500;
+          background: #9655ff;
+          color: #fff;
           text-decoration: none;
-          transition: all 0.3s ease;  background:  #9655ff;
-          color: #fff;
-          box-shadow: 0 9px 30px rgba(180, 132, 252, 0.4);
-          
-          
-nav-btn        }
+          margin-left: 10px;
+          font-size: 15px;
+                   
 
-        .nav-btn:hover {
-          background: ${accentColor};
-          color: #fff;
-          transform: translateY(-2px);
-          box-shadow: 0 6px 18px rgba(192, 132, 252, 0.4);
         }
 
         .menu-toggle {
-          display: none;
-          font-size: 26px;
+          font-size: 24px;
           background: none;
           border: none;
           color: white;
+          cursor: pointer;
         }
 
-        /* MOBILE */
-        @media (max-width: 768px) {
-          .menu-toggle {
-            display: block;
-          }
+        /* MOBILE OVERLAY */
+        .mobile-overlay {
+          position: absolute;
+          top: 60px;
+          left: 0;
+          width: 100%;
+          background: #0a0f1e;
+          padding: 20px;
+            padding-bottom: 200px;
+          border-radius: 12px;
+          z-index: 999;
+          box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
 
-          .nav-links {
-            position: absolute;
-            top: 80px;
-            left: 0;
-            width: 100%;
-            flex-direction: column;
-            background: rgba(10, 15, 30, 0.95);
-            padding: 20px;
-            gap: 18px;
-            display: ${open ? "flex" : "none"};
-          }
+        .mobile-menu {
+          display: flex;
+          flex-direction: column;
+          gap: 15px;
+        }
 
-          .nav-actions {
-            display: none;
-          }
+        .mobile-menu a {
+          color: #dbe3ff;
+          text-decoration: none;
+          font-size: 16px;
+        }
+
+          .mobile-btn {
+          padding: 8px 14px;
+          border-radius: 20px;
+          border: 1px solid ${accentColor};
+          background: #9655ff;
+          color: #fff;
+          text-decoration: none;
+          margin-left: 10px;
+          font-size: 13px;
+          width:50%;
+          display:flex ;
+          justify-content:center;
         }
       `}</style>
 
-      <nav className="custom-navbar">
-        {/* Logo */}
-        {/* <a href="/" className="nav-logo">
-          Adila<span>.</span>
-        </a> */}
+      <nav className="navbar">
+        {/* ===== DESKTOP VIEW ===== */}
+        {!isMobile && (
+          <>
+            <div className="nav-links">
+              <a href="/">Home</a>
+              <a href="/about">About</a>
+              <a href="/project">Projects</a>
+              <a href="/contact">Contact</a>
+            </div>
 
-        {/* Links */}
-        <div className="nav-links">
-          <a href="/">Home</a>
-          <a href="/about">About</a>
-          <a href="/project">Projects</a>
-          <a href="/contact">Contact</a>
-        </div>
+            <div>
+              <a href={pdfUrl} target="_blank" rel="noreferrer" className="nav-btn">
+                View Resume
+              </a>
+              <a href={pdfUrl} download className="nav-btn">
+                Download Resume
+              </a>
+            </div>
+          </>
+        )}
 
-        {/* Resume Actions */}
-        <div className="nav-actions">
-          <a href={pdfUrl} target="_blank" rel="noopener noreferrer" className="nav-btn">
-            View Resume
-          </a>
-          <a
-            className="nav-btn"
-            href={pdfUrl}
-            download="Adila_Farhana_Resume.pdf"
-          >
-            Download Resume
-          </a>
-        </div>
+        {/* ===== MOBILE VIEW ===== */}
+        {isMobile && (
+          <>
+            <button
+              className="menu-toggle"
+              onClick={() => setOpen(!open)}
+            >
+              ☰
+            </button>
 
-        {/* Mobile Menu Button */}
-        <button className="menu-toggle" onClick={() => setOpen(!open)}>
-          ☰
-        </button>
+            {open && (
+              <div className="mobile-overlay">
+                <div className="mobile-menu">
+                  <a href="/" onClick={() => setOpen(false)}>Home</a>
+                  <a href="/about" onClick={() => setOpen(false)}>About</a>
+                  <a href="/project" onClick={() => setOpen(false)}>Projects</a>
+                  <a href="/contact" onClick={() => setOpen(false)}>Contact</a>
+
+                  <a
+                    href={pdfUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mobile-btn"
+                    onClick={() => setOpen(false)}
+                  >
+                    View Resume
+                  </a>
+
+                  <a
+                    href={pdfUrl}
+                    download
+                    className="mobile-btn"
+                    onClick={() => setOpen(false)}
+                  >
+                    Download Resume
+                  </a>
+                </div>
+              </div>
+            )}
+          </>
+        )}
       </nav>
     </>
   );
