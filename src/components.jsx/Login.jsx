@@ -684,8 +684,7 @@ const Home = () => {
           <div className="hero-wrapper">
             <div className="hero-left">
               <h1>Hi, I'm <span>Adila Farhana</span></h1>
-              <p>I architect robust, scalable web ecosystems with elegant backend logic, optimized database schemas, and secure RESTful APIs. Passionate about clean code and modern frameworks.</p>
-
+    <p>I create scalable web solutions with clean backend architecture and secure APIs, while guiding and mentoring others to build their own robust applications. I’m passionate about sharing knowledge, modern frameworks, and best coding practices.</p>
               <div className="cta-buttons">
                 <button className="btn btn-outline" onClick={() => navigate("/about")}>
                   ✨ Abount Me

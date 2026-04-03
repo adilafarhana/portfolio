@@ -146,7 +146,6 @@ const About = () => {
         .story-text .highlight {
           color: ${accentColor};
           font-weight: 600;
-          border-bottom: 2px dotted ${accentColor};
         }
 
         .story-text .emphasis {
@@ -534,8 +533,8 @@ const About = () => {
             <span className="last-name">Farhana</span>
           </h1>
           <div className="hero-tagline">
-            Crafting elegant code and meaningful digital experiences with Laravel & React
-          </div>
+         Building clean code and useful web applications with Laravel and React.    
+      </div>
         </div>
 
         {/* My Story - Narrative Style */}
@@ -551,12 +550,9 @@ const About = () => {
             <p>
               My journey started with <span className="highlight">PHP and Laravel</span>, where I discovered the beauty of clean backend architecture. The elegance of Eloquent ORM and the power of MVC pattern captivated me. Later, I expanded into the <span className="highlight">MERN stack</span>, embracing the world of full-stack development with React and Node.js. Today, I specialize in building scalable web applications that don't just work — they <span className="highlight">delight users and empower businesses</span>.
             </p>
-            <div className="emphasis">
-              "I believe great software is born from simplicity, empathy, and an obsession with details."
-            </div>
+            
             <p>
-              Beyond code, I'm a lifelong learner who loves exploring emerging technologies, contributing to meaningful projects, and collaborating with creative minds. Every line of code I write is an opportunity to solve a problem, and every project is a chance to make someone's day a little easier.
-            </p>
+Beyond coding, I am a lifelong learner who enjoys exploring new technologies, contributing to meaningful projects, and collaborating with creative teams. Every project is an opportunity to solve problems and make a positive impact.            </p>
           </div>
         </div>
 
@@ -734,7 +730,7 @@ Developed strong analytical and problem-solving skills through academic projects
           </div>  </div>
       </div>
     </>
-  );
+  ); 
 };
 
 export default memo(About);
