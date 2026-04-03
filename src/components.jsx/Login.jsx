@@ -15,7 +15,6 @@ const Card = ({ title, children, accentColor, icon }) => (
 );
 
 // Tech Badge Component
-const TechBadge = ({ tech }) => <span className="tech-badge">{tech}</span>;
 
 const Home = () => {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -23,7 +22,6 @@ const Home = () => {
   // Vibrant new color theme - Electric Purple & Coral Orange
   const accentColor = "#c084fc";
   const secondaryAccent = "#f97316";
-  const gradientBg = "linear-gradient(135deg, #c084fc, #a855f7, #f97316)";
 
   // Tech Stack
   const skills = [

@@ -5,11 +5,6 @@ const Contact = () => {
   const accentColor = "#c084fc";
   const secondaryAccent = "#f97316";
 
- const [formData, setFormData] = useState({
-  name: "",
-  email: "",
-  message: "",
-});
 
   useEffect(() => {
     window.scrollTo({ top: 0 });
