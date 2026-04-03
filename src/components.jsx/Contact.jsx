@@ -1,4 +1,4 @@
-import { memo, useState, useEffect } from "react";
+import { memo, useEffect } from "react";
 import Nav from "./Nav";
 
 const Contact = () => {
