@@ -684,10 +684,10 @@ const Home = () => {
           <div className="hero-wrapper">
             <div className="hero-left">
               <h1>Hi, I'm <span>Adila Farhana</span></h1>
-    <p>I create scalable web solutions with clean backend architecture and secure APIs, while guiding and mentoring others to build their own robust applications. I’m passionate about sharing knowledge, modern frameworks, and best coding practices.</p>
+    <p>I am a backend developer focused on building scalable applications with Laravel. I created this portfolio using React to enhance my frontend skills and grow into a full-stack developer.</p>
               <div className="cta-buttons">
                 <button className="btn btn-outline" onClick={() => navigate("/about")}>
-                  ✨ Abount Me
+                  ✨ About Me
                 </button>
                 <button className="btn btn-outline" onClick={() => navigate("/contact")}>
                   Contact Me
