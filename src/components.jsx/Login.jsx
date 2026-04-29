@@ -719,7 +719,7 @@ const Home = () => {
             <h2 className="section-title"> Technical Superpowers</h2>
             <div className="grid">
               {skills.map((s, i) => (
-                <Card key={i} title={s.title} accentColor={accentColor} icon={s.icon}>
+                <Card key={i} title={s.title}  accentColor={accentColor} icon={s.icon}>
                   {s.content}
                 </Card>
               ))}
