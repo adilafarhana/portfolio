@@ -28,7 +28,7 @@ const Home = () => {
     { title: " Frontend", content: "React.js, HTML5, CSS3, Bootstrap" },
     { title: " Backend", content: "Laravel, PHP, Node.js, Express.js" },
     { title: " Databases", content: "MySQL, MongoDB" },
-    { title: " Programming", content: "JavaScript, Python, Java, C, PHP" },
+    { title: " Programming", content: "JavaScript, Python, C, PHP" },
     { title: " Tools", content: "Git, GitHub, VS Code, Postman" },
     { title: " Other Skills", content: "REST API, JWT Auth, MVC Architecture" },
   ];
@@ -706,7 +706,7 @@ const Home = () => {
                   </div>
                   <div className="code-line"><span className="code-key">developer</span> = {`{`}</div>
                   <div className="code-line">&nbsp;&nbsp;<span className="code-key">role</span>: <span className="code-value">"PHP Backend Developer"</span>,</div>
-                  <div className="code-line">&nbsp;&nbsp;<span className="code-key">skills</span>: <span className="code-accent">["php", "java", "MySQL", "MERN stack"]</span>,</div>
+                  <div className="code-line">&nbsp;&nbsp;<span className="code-key">skills</span>: <span className="code-accent">["php", "react", "MySQL", "MERN Stack"]</span>,</div>
                   <div className="code-line">&nbsp;&nbsp;<span className="code-key">status</span>: <span className="code-value">"currently working"</span></div>
                   <div className="code-line">{`}`}</div>
                 </div>
@@ -771,13 +771,13 @@ const Home = () => {
                 <Card key={i} accentColor={accentColor}>
                   <p className="cert-name">{cert.name}</p>
                   <div style={{ display: 'flex', justifyContent: 'center' }}>
-                    <button
+                    {/* <button
                       className="btn btn-outline"
                       style={{ padding: '10px 24px' }}
                       onClick={() => setSelectedImage(cert.image)}
                     >
                       View
-                    </button>
+                    </button> */}
                   </div>
                 </Card>
               ))}
