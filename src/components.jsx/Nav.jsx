@@ -136,7 +136,7 @@ const Nav = () => {
               className="menu-toggle"
               onClick={() => setOpen(!open)}
             >
-              ☰
+            ☰
             </button>
 
             {open && (
