@@ -706,7 +706,7 @@ const Home = () => {
                   </div>
                   <div className="code-line"><span className="code-key">developer</span> = {`{`}</div>
                   <div className="code-line">&nbsp;&nbsp;<span className="code-key">role</span>: <span className="code-value">"PHP Backend Developer"</span>,</div>
-                  <div className="code-line">&nbsp;&nbsp;<span className="code-key">skills</span>: <span className="code-accent">["php", "react", "MySQL", "MERN Stack"]</span>,</div>
+                  <div className="code-line">&nbsp;&nbsp;<span className="code-key">skills</span>: <span className="code-accent">["php", "Laravel", "react", "MySQL","MERN Stack"]</span>,</div>
                   <div className="code-line">&nbsp;&nbsp;<span className="code-key">status</span>: <span className="code-value">"currently working"</span></div>
                   <div className="code-line">{`}`}</div>
                 </div>
