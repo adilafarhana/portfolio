@@ -4,7 +4,7 @@ const Nav = () => {
   const [open, setOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
-  const pdfUrl = "/resume.pdf";
+  const pdfUrl = "/newresume.pdf";
   const accentColor = "#c084fc";
 
   // Detect screen resize

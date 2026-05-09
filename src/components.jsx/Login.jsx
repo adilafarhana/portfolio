@@ -687,7 +687,7 @@ const Home = () => {
     <p>I am a backend developer focused on building scalable applications with Laravel. I created this portfolio using React to enhance my frontend skills and grow into a full-stack developer.</p>
               <div className="cta-buttons">
                 <button className="btn btn-outline" onClick={() => navigate("/about")}>
-                  ✨ About Me
+                  About Me
                 </button>
                 <button className="btn btn-outline" onClick={() => navigate("/contact")}>
                   Contact Me
